@@ -1,11 +1,12 @@
 <?php
-include 'config.php';
+session_start();
+require_once('config.php');
 if(isset($_POST['submit'])){
 
 		$user = $_POST['uname'];
 		$pass = $_POST['pass'];
 	
-	$query_admin = "SELECT * from users where username = '".$user."' AND password ='".$pass."'";
+	$query_admin = "SELECT * from admin where username = '".$user."' AND password ='".$pass."'";
 
 		$fetch_admin = mysqli_query($link,$query_admin) or die (mysqli_error());
 
@@ -14,7 +15,7 @@ if(isset($_POST['submit'])){
 						if (is_array($fetch_admin_result))
 						{
 							$_SESSION['login_name'] = $_POST['uname'];
-							$_SESSION['login_session'] = "submit";
+							$_SESSION['pass'] = $_POST['pass'];
 							echo '<script type="text/javascript">';
 							echo 'alert("Successful Login! \n WELCOME - '.$user.'   ");';
 							echo 'window.location.href="index.php"';

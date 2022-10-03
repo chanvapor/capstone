@@ -1,4 +1,6 @@
 <?php 
+session_start();
+require_once ('config.php');
 include('includes/header.php');
 include('includes/navbar.php');
 ?>

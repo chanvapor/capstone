@@ -1,6 +1,31 @@
 <?php 
+require_once('config.php');
 include('includes/header.php');
 include('includes/navbar.php');
+$connection = mysqli_connect("localhost","root", "","barangaymanga");
+$db = mysqli_select_db($connection, 'barangaymanga');
+if(isset($_POST['adds'])){
+    $sname = $_POST['staff_name'];
+    $spass = $_POST['staff_pass'];
+    $semail = $_POST['staff_email'];
+    $scontact = $_POST['staff_contact'];
+
+    $sql = "INSERT INTO staff (s_id, s_name, s_password, s_email, s_contact) VALUES ('','$sname','$spass','$semail','$scontact')";
+    $query_add = mysqli_query($connection, $sql);
+
+    if(!$query_add){
+        echo '<script>alert("Staff Added");</script>';
+        header('Location: staff.php');
+    }
+    else{
+        echo '<script>alert("Please try again!);"</script>?';
+    }
+
+    
+   
+    
+    }
+    
 ?>
 
        
@@ -217,6 +242,7 @@ include('includes/navbar.php');
 <!-- Modal -->
 
 <!------------Add New Staff Modal----------------->
+
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -227,30 +253,33 @@ include('includes/navbar.php');
         </button>
       </div>
       <div class="modal-body">
+        <form method="POST">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" autocomplete="off" placeholder="Enter Username">
+            <input type="text" name="staff_name" class="form-control" id="username" autocomplete="off" placeholder="Enter Username">
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" autocomplete="off" placeholder="Enter Password">
+            <input type="password" name="staff_pass"  class="form-control" id="password" autocomplete="off" placeholder="Enter Password">
         </div>
         <div class="form-group">
             <label for="mail">Email Address</label>
-            <input type="email" class="form-control" id="mail" autocomplete="off" placeholder="Enter Email">
+            <input type="email" name="staff_email" class="form-control" id="mail" autocomplete="off"  placeholder="Enter Email">
         </div>
         <div class="form-group">
             <label for="contact">Contact Number</label>
-            <input type="text" class="form-control" id="contact" autocomplete="off" placeholder="Enter Contact Number">
+            <input type="text" name="staff_num"  class="form-control" id="contact" autocomplete="off" placeholder="Enter Contact Number">
         </div>
       </div>
+        </form>
       <div class="modal-footer">
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="button" name="adds" class="btn btn-dark" >Submit</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div> 
     </div>
   </div>
 </div>
+
 <!------------------------------------------------>
 
 
