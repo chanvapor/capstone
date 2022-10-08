@@ -1,3 +1,6 @@
+<?php
+include('security.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +13,7 @@
     <meta name="author" content="">
 
     <title>Admin Dashboard</title>
+    <link href="img/manga.png" rel="icon">
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -11,72 +11,80 @@ include('includes/navbar.php');
             <div id="content">
 
             <?php include 'includes/topbar.php';?>
-                
-                <!-- Add Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+
+            <!-- Compose Modal -->
+<div class="modal fade" id="composeModal" tabindex="-1" role="dialog" aria-labelledby="composeModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addModalLabel">Add News</h5>
+        <h5 class="modal-title" id="composeModalLabel">New Message</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" autocomplete="off" placeholder="Enter Title">
+            <label for="receiver">To</label>
+            <input type="text" class="form-control" id="receiver" autocomplete="off" placeholder="Recepients">
         </div>
         <div class="form-group">
-            <label for="content">Content</label>
-            <textarea type="text" class="form-control" id="content" autocomplete="off" placeholder="Enter Content"></textarea>
+            <input type="text" class="form-control" id="subject" autocomplete="off" placeholder="Subject">
+        </div>
+        <div class="form-group">
+            <textarea type="text" class="form-control" id="content" autocomplete="off" placeholder="Content"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-dark">Submit</button>
+        <button type="button" class="btn btn-dark">Send</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div> 
+    </div>
+  </div>
+</div>
+                
+                <!-- Reply Modal -->
+<div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="replyModalLabel">New Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="receiver">To</label>
+            <input type="text" class="form-control" id="receiver" autocomplete="off" placeholder="Recepients">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" id="subject" autocomplete="off" placeholder="Subject">
+        </div>
+        <div class="form-group">
+            <textarea type="text" class="form-control" id="content" autocomplete="off" placeholder="Content"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark">Send</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div> 
     </div>
   </div>
 </div>
 
-               <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Edit News</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-            <label for="title">Edit Title</label>
-            <input type="text" class="form-control" id="title" autocomplete="off" placeholder="Enter Title">
-        </div>
-        <div class="form-group">
-            <label for="content">Edit Content</label>
-            <textarea type="text" class="form-control" id="content" autocomplete="off" placeholder="Enter Content"></textarea>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-dark">Submit</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div> 
-    </div>
-  </div>
-</div>
+
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">News</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Messages</h1>
+                    <hr class="sidebar-divider my-0">
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-dark my-3" data-toggle="modal" data-target="#addModal">
-                    Add New Post
+                    <button type="button" class="btn btn-dark my-3" data-toggle="modal" data-target="#composeModal">
+                    <i class="fas fa-fw fa-pen"></i>
+                    <span>Compose</span>
                     </button>
 
                     <div class="col-lg-4">
@@ -94,7 +102,7 @@ include('includes/navbar.php');
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="settings">
                                             <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" data-toggle="modal" data-target="#editModal">Update</a>
+                                            <a class="dropdown-item" data-toggle="modal" data-target="#replyModal">Reply</a>
                                             <a class="dropdown-item" href="#">Archive</a>
                                             <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="#">Delete</a>
@@ -103,7 +111,8 @@ include('includes/navbar.php');
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                Lorem ipsum dolor sit amet. Sit eaque necessitatibus sit doloremque adipisci a ipsam omnis eos consequatur dignissimos 33 reprehenderit fugit. Sed beatae voluptas aut excepturi voluptatum eum dignissimos consequuntur aut inventore sint et assumenda consequatur est voluptatem deserunt ut praesentium pariatur.
+                                <h6>LOREM IPSUM</h6>
+                                <p>Lorem ipsum dolor sit amet. Sit eaque necessitatibus sit doloremque adipisci a ipsam omnis eos consequatur dignissimos 33 reprehenderit fugit. Sed beatae voluptas aut excepturi voluptatum eum dignissimos consequuntur aut inventore sint et assumenda consequatur est voluptatem deserunt ut praesentium pariatur.</p>
                                 </div>
                             </div>
                             
