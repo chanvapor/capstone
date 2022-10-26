@@ -106,9 +106,7 @@ include('includes/navbar.php');
                                 Lorem ipsum dolor sit amet. Sit eaque necessitatibus sit doloremque adipisci a ipsam omnis eos consequatur dignissimos 33 reprehenderit fugit. Sed beatae voluptas aut excepturi voluptatum eum dignissimos consequuntur aut inventore sint et assumenda consequatur est voluptatem deserunt ut praesentium pariatur.
                                 </div>
                             </div>
-                            
-
-                        </div>
+                      </div>
                 
 
                 </div>

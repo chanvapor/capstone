@@ -9,7 +9,7 @@ if(isset($_POST['submit'])){
 		$user = $_POST['uname'];
 		$pass = $_POST['pass'];
 	
-	$query_admin = "SELECT * from users where username = '".$user."' AND password ='".$pass."'";
+	$query_admin = "SELECT * from users where user_username = '".$user."' AND user_password ='".$pass."'";
 
 		$fetch_admin = mysqli_query($link,$query_admin) or die (mysqli_error());
 
